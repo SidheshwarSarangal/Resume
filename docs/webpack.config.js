@@ -5,7 +5,7 @@ module.exports = {
   entry: './src/index.js', // Entry point for your React app
   output: {
     filename: 'bundle.js', // Output bundle file
-    path: path.resolve(__dirname, 'build'), // Output directory
+    path: path.resolve(__dirname, 'dist'), // Output directory
     publicPath: '/Resume/'  // Ensure this matches the repo name
 
   },
