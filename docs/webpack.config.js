@@ -6,6 +6,8 @@ module.exports = {
   output: {
     filename: 'bundle.js', // Output bundle file
     path: path.resolve(__dirname, 'dist'), // Output directory
+    publicPath: '/Resume/'  // Ensure this matches the repo name
+
   },
   module: {
     rules: [
