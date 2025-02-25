@@ -2,12 +2,11 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js', // Entry point for your React app
+  entry: './src/index.js',
   output: {
-    filename: 'bundle.js', // Output bundle file
-    path: path.resolve(__dirname, 'build'), // Output directory
-    publicPath: '/Resume/'  // Ensure this matches the repo name
-
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'build'),
+    publicPath: './',  // Change from '/Resume/' to './' for relative paths
   },
   module: {
     rules: [
@@ -17,31 +16,29 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env', '@babel/preset-react'], // Use Babel to transpile React code
+            presets: ['@babel/preset-env', '@babel/preset-react'],
           },
         },
       },
       {
-        test: /\.css$/, // Match CSS files
-        use: ['style-loader', 'css-loader'], // Use these loaders to process CSS
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
       },
-
     ],
-
-
   },
   devServer: {
-    static: './dist', // Serve files from the 'dist' folder
-    open: true, // Open the browser automatically
-    hot: true, // Enable hot module replacement
-    port: 8080, // Use port 8080 for the dev server
+    static: './dist',
+    open: true,
+    hot: true,
+    port: 8080,
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './public/index.html', // Path to your HTML file
+      template: './public/index.html',
+      filename: 'index.html', // Ensure correct output filename
     }),
   ],
   resolve: {
-    extensions: ['.js', '.jsx'], // Resolve JSX files
+    extensions: ['.js', '.jsx'],
   },
 };
